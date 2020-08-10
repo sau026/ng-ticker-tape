@@ -1,0 +1,37 @@
+<div class="header-top" *ngIf="tickerData.length > 0">
+    <div class="loader" *ngIf="tickerSpinner">
+      <span class="active c-loader-icon"></span>
+    </div>
+    <div  class="header-top-content" [ngStyle]="{'display': tickerSpinner ? 'none' : 'block'}" (mouseover)="reset()" (mouseout)="moveLeft()" >
+      <div class="ticker-tape-conatiner" #tickerTapeConatiner>
+        <div class="ticker-tape-strip" *ngFor="let stripCounter of repeatCounter">
+          <div *ngFor="let singleCurrency of tickerData" class="wapper-tape">
+            <span class="currency-name">
+              {{singleCurrency.target_currency_short_name}}{{singleCurrency.base_currency_short_name}}
+            </span>
+            <span class="currency-price">
+              {{singleCurrency.price}}
+            </span>
+            <span class="currency-percentage" [ngStyle]="{'color': singleCurrency.color}">
+              {{singleCurrency.percentage}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div #textWidthElement id="ghost">
+      <div class="ghost-container">
+        <div *ngFor="let singleCurrency of tickerData" class="wapper-tape">
+          <span class="currency-name">
+            {{singleCurrency.target_currency_short_name}}/{{singleCurrency.base_currency_short_name}}
+          </span>
+          <span class="currency-price">
+            {{singleCurrency.price}}
+          </span>
+          <span class="currency-percentage" [ngStyle]="{'color': singleCurrency.color}">
+            {{singleCurrency.percentage}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div> 

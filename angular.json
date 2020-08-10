@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "ng-ticker-tape": {
+      "projectType": "library",
+      "root": "projects/ng-ticker-tape",
+      "sourceRoot": "projects/ng-ticker-tape/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-ticker-tape/tsconfig.lib.json",
+            "project": "projects/ng-ticker-tape/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-ticker-tape/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-ticker-tape/src/test.ts",
+            "tsConfig": "projects/ng-ticker-tape/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-ticker-tape/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-ticker-tape/tsconfig.lib.json",
+              "projects/ng-ticker-tape/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ng-ticker-tape-demo"
 }

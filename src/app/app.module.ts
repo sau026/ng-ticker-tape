@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgTickerTapeModule } from '../../projects/ng-ticker-tape/src/lib/ng-ticker-tape.module'
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgTickerTapeModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
